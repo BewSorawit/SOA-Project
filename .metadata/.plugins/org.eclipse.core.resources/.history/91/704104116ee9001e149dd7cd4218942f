@@ -1,0 +1,23 @@
+package project.projectsoa.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestController;
+
+import project.projectsoa.model.Rental;
+import project.projectsoa.repository.RentalRepository;
+
+@RestController
+public class RentalController {
+	
+	@Autowired
+	private RentalRepository rentalRepository;
+	
+	@PostMapping("/rental")
+	Rental newRental(@RequestBody Rental newRental) {
+		return rentalRepository.save(newRental);
+		
+	}
+}

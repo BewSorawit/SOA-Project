@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:19:02 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="project.projectsoa.PvHistory" optimistic-lock="none" table="pv_history">
+        <id name="pvhistoryId" type="java.lang.Integer">
+            <column name="pvhistoryID"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="project.projectsoa.Rank" fetch="select" name="rank">
+            <column name="rank" not-null="true"/>
+        </many-to-one>
+        <property name="memId" type="int">
+            <column name="memID" not-null="true"/>
+        </property>
+        <property name="pv" type="int">
+            <column name="PV" not-null="true"/>
+        </property>
+        <property name="date" type="date">
+            <column length="10" name="Date" not-null="true"/>
+        </property>
+        <property name="pvDown" type="int">
+            <column name="PV_down" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 4:00:13 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="model.Rank" optimistic-lock="none" table="rank">
+        <id name="rankId" type="int">
+            <column name="rankID"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="rankName" type="string">
+            <column length="50" name="rankName" not-null="true"/>
+        </property>
+        <property name="discount" type="double">
+            <column name="discount" not-null="true" precision="22" scale="0"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="members" table="member">
+            <key>
+                <column name="rank" not-null="true"/>
+            </key>
+            <one-to-many class="model.Member"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="pvHistories" table="pv_history">
+            <key>
+                <column name="rank" not-null="true"/>
+            </key>
+            <one-to-many class="model.PvHistory"/>
+        </set>
+    </class>
+</hibernate-mapping>

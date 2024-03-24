@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+D:\project-soa\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+189332295.index

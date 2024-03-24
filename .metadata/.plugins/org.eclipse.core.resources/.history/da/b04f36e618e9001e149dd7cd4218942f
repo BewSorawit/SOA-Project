@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 4:10:54 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="soa" name="model.Rentaldetail" optimistic-lock="none" table="rentaldetail">
+        <id name="rdId" type="java.lang.Integer">
+            <column name="rd_ID"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="model.Rental" fetch="select" name="rental">
+            <column name="rental_ID" not-null="true"/>
+        </many-to-one>
+        <property name="costomeId" type="int">
+            <column name="costomeID" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

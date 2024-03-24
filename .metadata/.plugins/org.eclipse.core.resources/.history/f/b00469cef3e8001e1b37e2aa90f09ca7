@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 4:00:13 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="model.Promotion" optimistic-lock="none" table="promotion">
+        <id name="proId" type="java.lang.Integer">
+            <column name="proID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="proName" type="string">
+            <column length="50" name="pro_name" not-null="true"/>
+        </property>
+        <property name="pv" type="int">
+            <column name="pv" not-null="true"/>
+        </property>
+        <property name="pricePro" type="int">
+            <column name="price_pro" not-null="true"/>
+        </property>
+        <property name="startDate" type="date">
+            <column length="10" name="startDate" not-null="true"/>
+        </property>
+        <property name="endDate" type="date">
+            <column length="10" name="endDate" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="promotiondetails" table="promotiondetail">
+            <key>
+                <column name="promotionID" not-null="true"/>
+            </key>
+            <one-to-many class="model.Promotiondetail"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="orderpromotions" table="orderpromotion">
+            <key>
+                <column name="promotionID" not-null="true"/>
+            </key>
+            <one-to-many class="model.Orderpromotion"/>
+        </set>
+    </class>
+</hibernate-mapping>

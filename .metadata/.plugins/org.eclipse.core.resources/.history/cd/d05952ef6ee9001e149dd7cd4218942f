@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:41:09 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="soa" name="project.projectsoa.Costumetype" optimistic-lock="none" table="costumetype">
+        <id name="typeId" type="java.lang.Integer">
+            <column name="type_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="typeName" type="string">
+            <column length="255" name="typeName" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="costumes" table="costume">
+            <key>
+                <column name="type_ID" not-null="true"/>
+            </key>
+            <one-to-many class="project.projectsoa.Costume"/>
+        </set>
+    </class>
+</hibernate-mapping>

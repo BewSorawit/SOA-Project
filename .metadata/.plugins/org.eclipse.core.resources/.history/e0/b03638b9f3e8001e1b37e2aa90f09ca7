@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 3:58:21 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="model.Orderpromotion" optimistic-lock="none" table="orderpromotion">
+        <id name="orderpromotionId" type="int">
+            <column name="orderpromotionID"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="model.Orders" fetch="select" name="orders">
+            <column name="orderID" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="model.Promotion" fetch="select" name="promotion">
+            <column name="promotionID" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

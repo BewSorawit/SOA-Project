@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 3:58:21 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="phpmyadmin" name="model.PmaDesignerSettings" optimistic-lock="none" table="pma__designer_settings">
+        <id name="username" type="string">
+            <column length="64" name="username"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="settingsData" type="string">
+            <column length="65535" name="settings_data" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

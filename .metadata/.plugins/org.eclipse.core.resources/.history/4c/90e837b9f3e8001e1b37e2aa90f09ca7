@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 3:58:21 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="model.Memberhome" optimistic-lock="none" table="memberhome">
+        <composite-id class="model.MemberhomeId" name="id">
+            <key-property name="address" type="string">
+                <column length="50" name="Address"/>
+            </key-property>
+            <key-property name="discount" type="java.lang.Double">
+                <column name="discount" precision="22" scale="0"/>
+            </key-property>
+            <key-property name="loginId" type="string">
+                <column length="50" name="loginID"/>
+            </key-property>
+            <key-property name="loginPass" type="string">
+                <column length="50" name="loginPass"/>
+            </key-property>
+            <key-property name="memberId" type="int">
+                <column name="memberID"/>
+            </key-property>
+            <key-property name="name" type="string">
+                <column length="50" name="Name"/>
+            </key-property>
+            <key-property name="pv" type="int">
+                <column name="PV"/>
+            </key-property>
+            <key-property name="rank" type="int">
+                <column name="rank"/>
+            </key-property>
+            <key-property name="rankId" type="java.lang.Integer">
+                <column name="rankID"/>
+            </key-property>
+            <key-property name="rankName" type="string">
+                <column length="50" name="rankName"/>
+            </key-property>
+            <key-property name="surname" type="string">
+                <column length="50" name="Surname"/>
+            </key-property>
+            <key-property name="upline" type="string">
+                <column length="11" name="upline"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

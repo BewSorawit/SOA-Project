@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 4:06:14 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="projectsoa" name="model.Order" optimistic-lock="none" table="order">
+        <id name="orderId" type="string">
+            <column length="50" name="orderID"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="model.Orderdetail" fetch="select" name="orderdetail">
+            <column name="orderDetail" not-null="true"/>
+        </many-to-one>
+        <property name="customerId" type="string">
+            <column length="50" name="customerID" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

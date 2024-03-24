@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:41:09 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="phpmyadmin" name="project.projectsoa.PmaRecent" optimistic-lock="none" table="pma__recent">
+        <id name="username" type="string">
+            <column length="64" name="username"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="tables" type="string">
+            <column length="65535" name="tables" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

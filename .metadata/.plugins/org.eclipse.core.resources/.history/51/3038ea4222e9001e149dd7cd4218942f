@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 4:10:54 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="soa" name="model.Rental" optimistic-lock="none" table="rental">
+        <id name="rentalId" type="java.lang.Integer">
+            <column name="rental_ID"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="model.Customer" fetch="select" name="customer">
+            <column name="cud_id" not-null="true"/>
+        </many-to-one>
+        <property name="empId" type="int">
+            <column name="emp_id" not-null="true"/>
+        </property>
+        <property name="orderDate" type="date">
+            <column length="10" name="orderDate" not-null="true"/>
+        </property>
+        <property name="dueDate" type="date">
+            <column length="10" name="dueDate" not-null="true"/>
+        </property>
+        <property name="returnDate" type="date">
+            <column length="10" name="returnDate" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="rentaldetails" table="rentaldetail">
+            <key>
+                <column name="rental_ID" not-null="true"/>
+            </key>
+            <one-to-many class="model.Rentaldetail"/>
+        </set>
+    </class>
+</hibernate-mapping>

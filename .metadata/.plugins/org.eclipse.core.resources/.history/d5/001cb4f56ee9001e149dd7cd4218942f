@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:41:09 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="phpmyadmin" name="project.projectsoa.PmaSavedsearches" optimistic-lock="none" table="pma__savedsearches">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="username" type="string">
+            <column length="64" name="username" not-null="true"/>
+        </property>
+        <property name="dbName" type="string">
+            <column length="64" name="db_name" not-null="true"/>
+        </property>
+        <property name="searchName" type="string">
+            <column length="64" name="search_name" not-null="true"/>
+        </property>
+        <property name="searchData" type="string">
+            <column length="65535" name="search_data" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 4:10:54 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="model.Member" optimistic-lock="none" table="member">
+        <id name="memberId" type="java.lang.Integer">
+            <column name="memberID"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="model.Rank" fetch="select" name="rank">
+            <column name="rank" not-null="true"/>
+        </many-to-one>
+        <property name="name" type="string">
+            <column length="50" name="Name" not-null="true"/>
+        </property>
+        <property name="surname" type="string">
+            <column length="50" name="Surname" not-null="true"/>
+        </property>
+        <property name="address" type="string">
+            <column length="50" name="Address" not-null="true"/>
+        </property>
+        <property name="loginId" type="string">
+            <column length="50" name="loginID" not-null="true"/>
+        </property>
+        <property name="loginPass" type="string">
+            <column length="50" name="loginPass" not-null="true"/>
+        </property>
+        <property name="pv" type="int">
+            <column name="PV" not-null="true"/>
+        </property>
+        <property name="upline" type="string">
+            <column length="11" name="upline"/>
+        </property>
+    </class>
+</hibernate-mapping>

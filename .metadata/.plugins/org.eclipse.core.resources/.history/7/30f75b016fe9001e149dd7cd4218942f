@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:19:02 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="soa" name="project.projectsoa.Rental" optimistic-lock="none" table="rental">
+        <id name="rentalId" type="java.lang.Integer">
+            <column name="rental_ID"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="project.projectsoa.User" fetch="select" name="userByCusId">
+            <column name="cus_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="project.projectsoa.User" fetch="select" name="userByEmpId">
+            <column name="emp_id"/>
+        </many-to-one>
+        <property name="orderDate" type="date">
+            <column length="10" name="orderDate" not-null="true">
+                
+            </column>
+        </property>
+        <property name="dueDate" type="date">
+            <column length="10" name="dueDate">
+                
+            </column>
+        </property>
+        <property name="returnDate" type="date">
+            <column length="10" name="returnDate">
+                <comment>�ѹ����١��Ҥ׹</comment>
+            </column>
+        </property>
+        <property name="rentStatus" type="string">
+            <column length="255" name="rent_status" not-null="true">
+               
+            </column>
+        </property>
+        <property name="dueDate_1" type="date">
+            <column length="10" name="due_date"/>
+        </property>
+        <property name="orderDate_1" type="date">
+            <column length="10" name="order_date"/>
+        </property>
+        <property name="returnDate_1" type="date">
+            <column length="10" name="return_date"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="rentaldetails" table="rentaldetail">
+            <key>
+                <column name="rental_ID" not-null="true"/>
+            </key>
+            <one-to-many class="project.projectsoa.Rentaldetail"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="payments" table="payment">
+            <key>
+                <column name="rental_ID" not-null="true">
+                   
+                </column>
+            </key>
+            <one-to-many class="project.projectsoa.Payment"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="rentalRentaldetailses" table="rental_rentaldetails">
+            <key>
+                <column name="rental_rental_id" not-null="true"/>
+            </key>
+            <one-to-many class="project.projectsoa.RentalRentaldetails"/>
+        </set>
+    </class>
+</hibernate-mapping>

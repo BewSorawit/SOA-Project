@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:19:02 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="soa" name="project.projectsoa.RentalRentaldetails" optimistic-lock="none" table="rental_rentaldetails">
+        <composite-id class="project.projectsoa.RentalRentaldetailsId" name="id">
+            <key-property name="rentalRentalId" type="int">
+                <column name="rental_rental_id"/>
+            </key-property>
+            <key-property name="rentaldetailsRdId" type="int">
+                <column name="rentaldetails_rd_id"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="project.projectsoa.Rental" fetch="select" insert="false" name="rental" update="false">
+            <column name="rental_rental_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="project.projectsoa.Rentaldetail" fetch="select" insert="false" name="rentaldetail" update="false">
+            <column name="rentaldetails_rd_id" not-null="true" unique="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

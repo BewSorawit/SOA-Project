@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 4:10:54 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="model.Employee" optimistic-lock="none" table="employee">
+        <id name="employeeId" type="java.lang.Integer">
+            <column name="employeeID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="string">
+            <column length="50" name="name" not-null="true"/>
+        </property>
+        <property name="surname" type="string">
+            <column length="50" name="surname" not-null="true"/>
+        </property>
+        <property name="userId" type="string">
+            <column length="50" name="userID" not-null="true"/>
+        </property>
+        <property name="password" type="string">
+            <column length="50" name="password" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="orderses" table="orders">
+            <key>
+                <column name="empID"/>
+            </key>
+            <one-to-many class="model.Orders"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="roles" table="role">
+            <key>
+                <column name="empID" not-null="true"/>
+            </key>
+            <one-to-many class="model.Role"/>
+        </set>
+    </class>
+</hibernate-mapping>

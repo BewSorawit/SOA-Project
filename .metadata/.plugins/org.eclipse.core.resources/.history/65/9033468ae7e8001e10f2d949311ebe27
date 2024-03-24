@@ -1,0 +1,5 @@
+package project.projectsoa.model;
+
+public class Rental {
+
+}

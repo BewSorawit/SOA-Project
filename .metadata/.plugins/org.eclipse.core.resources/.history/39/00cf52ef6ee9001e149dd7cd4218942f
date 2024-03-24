@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:41:09 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="project.projectsoa.Orders" optimistic-lock="none" table="orders">
+        <id name="orderId" type="java.lang.Integer">
+            <column name="orderID"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="project.projectsoa.Employee" fetch="select" name="employee">
+            <column name="empID"/>
+        </many-to-one>
+        <property name="date" type="date">
+            <column length="10" name="date"/>
+        </property>
+        <property name="memberId" type="java.lang.Integer">
+            <column name="memberID"/>
+        </property>
+        <property name="status" type="string">
+            <column length="255" name="status"/>
+        </property>
+        <property name="image" type="string">
+            <column length="255" name="image"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="orderproducts" table="orderproduct">
+            <key>
+                <column name="orderID" not-null="true"/>
+            </key>
+            <one-to-many class="project.projectsoa.Orderproduct"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="orderpromotions" table="orderpromotion">
+            <key>
+                <column name="orderID" not-null="true"/>
+            </key>
+            <one-to-many class="project.projectsoa.Orderpromotion"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+package project.projectsoa.repository;
+
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
+import project.projectsoa.model.Customer;
+import project.projectsoa.model.Rentaldetail;
+
+public class RentalRepository extends JpaRepository<Customer,Rentaldetail> {
+
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:41:09 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="projectsoa" name="project.projectsoa.Menutype" optimistic-lock="none" table="menutype">
+        <id name="typeName" type="string">
+            <column length="50" name="type_name"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="project.projectsoa.Menu" fetch="select" name="menu">
+            <column length="11" name="menuID" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,10 @@
+package project.projectsoa.model;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Customer {
+	private ing customer_id;
+
+
+}

@@ -1,0 +1,14 @@
+package project.projectsoa.model;
+
+import java.util.Date;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Rental {
+	private int rent_id;
+	private Date startDate;
+	private Date returnDate;
+	
+
+}

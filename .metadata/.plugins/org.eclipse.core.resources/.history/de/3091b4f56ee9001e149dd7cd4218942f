@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:41:09 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="phpmyadmin" name="project.projectsoa.PmaTableUiprefs" optimistic-lock="none" table="pma__table_uiprefs">
+        <composite-id class="project.projectsoa.PmaTableUiprefsId" name="id">
+            <key-property name="dbName" type="string">
+                <column length="64" name="db_name"/>
+            </key-property>
+            <key-property name="tableName" type="string">
+                <column length="64" name="table_name"/>
+            </key-property>
+            <key-property name="username" type="string">
+                <column length="64" name="username"/>
+            </key-property>
+        </composite-id>
+        <property name="prefs" type="string">
+            <column length="65535" name="prefs" not-null="true"/>
+        </property>
+        <property name="lastUpdate" type="timestamp">
+            <column length="19" name="last_update" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

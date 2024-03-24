@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 24, 2024, 6:19:02 AM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="db23_105" name="project.projectsoa.Roletype" optimistic-lock="none" table="roletype">
+        <id name="roletypeId" type="java.lang.Integer">
+            <column name="roletypeID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="nameType" type="string">
+            <column length="50" name="nameType" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="roles" table="role">
+            <key>
+                <column name="roletypeID" not-null="true"/>
+            </key>
+            <one-to-many class="project.projectsoa.Role"/>
+        </set>
+    </class>
+</hibernate-mapping>

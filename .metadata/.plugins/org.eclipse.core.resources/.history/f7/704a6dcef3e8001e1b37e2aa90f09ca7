@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 23, 2024, 4:00:13 PM by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="phpmyadmin" name="model.PmaRelation" optimistic-lock="none" table="pma__relation">
+        <composite-id class="model.PmaRelationId" name="id">
+            <key-property name="masterDb" type="string">
+                <column length="64" name="master_db"/>
+            </key-property>
+            <key-property name="masterField" type="string">
+                <column length="64" name="master_field"/>
+            </key-property>
+            <key-property name="masterTable" type="string">
+                <column length="64" name="master_table"/>
+            </key-property>
+        </composite-id>
+        <property name="foreignDb" type="string">
+            <column length="64" name="foreign_db" not-null="true"/>
+        </property>
+        <property name="foreignTable" type="string">
+            <column length="64" name="foreign_table" not-null="true"/>
+        </property>
+        <property name="foreignField" type="string">
+            <column length="64" name="foreign_field" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
