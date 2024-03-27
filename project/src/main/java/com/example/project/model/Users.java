@@ -99,9 +99,7 @@ public class Users{
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
-	
 
-    // Constructors, getters, and setters
 	
 	
 }
