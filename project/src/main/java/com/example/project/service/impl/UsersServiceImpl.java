@@ -18,10 +18,9 @@ public class UsersServiceImpl implements UsersService {
 	public List<Users> getAllUsers(){
 		return u.findAll();
 	}
-	
 	@Override
-	public Users login(String username,String pwd) {
-		return u.findByUserNameAndPassword(username, pwd);
+	public Users login(Users user) {
+		return u.findByUserNameAndPassword(user.getUserName(), user.getPassword());
 	}
 
 }
