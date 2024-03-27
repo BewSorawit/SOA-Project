@@ -47,4 +47,33 @@ public class RentalServiceImpl implements RentalService {
     public List<Rental> getAllRental() {
         return rentalRepository.findAll();
     }
+
+    @Override
+    @Transactional
+    public void deleteRental(int rentalId) {
+        rentalRepository.deleteById(rentalId);
+    }
+
+    @Override
+    public Rental getRentalById(int rentalId) {
+        return rentalRepository.findById(rentalId)
+                .orElseThrow(() -> new IllegalArgumentException("Rental not found"));
+    }
+
+    @Override
+    @Transactional
+    public Rental updateRental(int rentalId, Rental rentalDetails) {
+        Rental rental = rentalRepository.findById(rentalId)
+                .orElseThrow(() -> new IllegalArgumentException("Rental not found"));
+
+        rental.setCustomer(rentalDetails.getCustomer());
+        rental.setEmployee(rentalDetails.getEmployee());
+        rental.setOrderDate(rentalDetails.getOrderDate());
+        rental.setDueDate(rentalDetails.getDueDate());
+        rental.setReturnDate(rentalDetails.getReturnDate());
+        rental.setRentStatus(rentalDetails.getRentStatus());
+        rental.setPaymentStatus(rentalDetails.getPaymentStatus());
+
+        return rentalRepository.save(rental);
+    }
 }
