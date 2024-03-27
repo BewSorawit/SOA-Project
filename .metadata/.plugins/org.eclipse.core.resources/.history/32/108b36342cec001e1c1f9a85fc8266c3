@@ -1,0 +1,8 @@
+package project.projectsoa.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import project.projectsoa.model.Rentaldetail;
+
+public interface RentalDetailRepository extends JpaRepository<Rentaldetail,Integer> {
+
+}

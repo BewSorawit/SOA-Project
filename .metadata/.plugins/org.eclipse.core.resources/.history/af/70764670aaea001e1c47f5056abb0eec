@@ -1,0 +1,8 @@
+package project.projectsoa.DAO;
+
+import java.io.Serializable;
+
+public class RentalDAO implements Serializable{
+	
+
+}

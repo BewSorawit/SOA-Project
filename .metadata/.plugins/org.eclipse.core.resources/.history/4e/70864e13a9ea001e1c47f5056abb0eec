@@ -1,0 +1,5 @@
+package project.projectsoa.DAO;
+
+public class RentalDAO {
+
+}

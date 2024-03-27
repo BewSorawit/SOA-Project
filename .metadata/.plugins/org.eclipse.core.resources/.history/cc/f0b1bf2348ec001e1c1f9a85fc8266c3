@@ -1,0 +1,12 @@
+package project.projectsoa.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import project.projectsoa.model.Rentaldetail;
+import project.projectsoa.response.RentalResponse;
+
+public interface RentalDetailRepository extends JpaRepository<Rentaldetail,Integer> {
+	//public List<RentalResponse> FindAllwithRentalDetail();
+
+}

@@ -1,0 +1,19 @@
+package project.projectsoa.DAO;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import project.projectsoa.model.Rental;
+
+
+public class RentalDAO implements Serializable{
+	public ArrayList<Rental> getAllRentalDetail(){
+		Session session = SessionUtil.getSession();
+		Query query = session.createQuery("FROM `rental` INNER JOIN rentaldetail on rental.rental_id = rentaldetail.rental_id INNER JOIN costume on rentaldetail.costume_id = costume.costume_id INNER JOIN user on rental.cus_id = user.cus_id WHERE user.user_role='CUSTOMER'");
+		ArrayList<Rental> rentalDetail = (ArrayList<Rental>) query.list();
+		session.close();
+		return rentalDetail;
+	}
+
+}

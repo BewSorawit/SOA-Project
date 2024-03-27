@@ -1,0 +1,8 @@
+package project.projectsoa.controller;
+
+import project.projectsoa.DAO.RentaldetailDAO;
+
+public class RentalDetailController {
+	public static RentaldetailDAO rentalDetailDao = new RentaldetailDAO();
+
+}

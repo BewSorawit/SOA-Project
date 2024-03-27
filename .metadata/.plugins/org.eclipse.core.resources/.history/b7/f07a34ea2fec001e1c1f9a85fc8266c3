@@ -1,0 +1,37 @@
+package project.projectsoa.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import project.projectsoa.DAO.RentaldetailDAO;
+import project.projectsoa.model.Rental;
+import project.projectsoa.model.Rentaldetail;
+import project.projectsoa.repository.RentalDetailRepository;
+
+@RestController
+@CrossOrigin(origins ="*")
+@RequestMapping("/api/rentaldetail")
+public class RentalDetailController {
+	public static RentaldetailDAO rentalDetailDao = new RentaldetailDAO();
+	
+	@Autowired
+	private RentalDetailRepository rentalDetailRepository;
+	
+	@GetMapping("/getAll")
+	List<Rentaldetail> getAllRentalDetail(){
+		return rentalDetailRepository.findAll();
+	}
+	
+	@PostMapping("/adddetail")
+	Rental newRental(@RequestBody Rental newRental) {
+		return rentalRepository.save(newRental);
+	}
+
+}

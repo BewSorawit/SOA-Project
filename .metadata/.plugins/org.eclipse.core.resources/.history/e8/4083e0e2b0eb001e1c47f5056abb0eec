@@ -1,0 +1,35 @@
+package project.projectsoa.response;
+
+import java.util.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class RentalResponse {
+	private int rental_id;
+	private String name;
+	private Date order_date;
+	private Date due_date;
+	private Date return_date;
+    private String rent_status;
+    private String payment_status;
+    private String costume_name;
+    
+    public RentalResponse(int rental_id,String name,Date order_date,Date due_date,Date return_date,String rent_status,String payment_status,String costume_name) {
+    	this.rental_id = rental_id;
+    	this.name = name;
+    	this.order_date = order_date;
+    	this.due_date = due_date;
+    	this.return_date = return_date;
+    	this.rent_status = rent_status;
+    	this.payment_status = payment_status;
+    	this.costume_name = costume_name;
+    }
+
+}

@@ -1,0 +1,19 @@
+package project.projectsoa.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import project.projectsoa.Response.RentalResponse;
+import project.projectsoa.model.Rental;
+
+
+public interface RentalRepository extends JpaRepository<Rental,Integer> {
+
+	@Query("SELECT new project.projectsoa.response.RentalResponse(rental.rental_id,user.name,rental.order_date,rental.due_date,rental.return_date,rental.rent_status,rental.payment_status,costume.costume_name) FROM `rental` INNER JOIN rentaldetail on rental.rental_id = rentaldetail.rental_id INNER JOIN costume on rentaldetail.costume_id = costume.costume_id INNER JOIN user on rental.cus_id = user.cus_id\r\n"
+			+ "WHERE user.user_role = \"CUSTOMER\"  \r\n"
+			+ "ORDER BY `rental`.`rent_status` ASC")
+	public List<RentalResponse> FindAllwithRentalDetail();
+}

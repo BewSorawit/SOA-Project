@@ -1,0 +1,22 @@
+package project.projectsoa.DAO;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import project.projectsoa.model.Rental;
+
+
+public class RentalDAO implements Serializable{
+	public ArrayList<Rental> getAllRentalDetail(){
+		Session session = SessionUtil.getSession();
+		Query query = session.createQuery("");
+		ArrayList<Rental> rentalDetail = (ArrayList<Rental>) query.list();
+		session.close();
+		return rentalDetail;
+		
+	}
+
+}

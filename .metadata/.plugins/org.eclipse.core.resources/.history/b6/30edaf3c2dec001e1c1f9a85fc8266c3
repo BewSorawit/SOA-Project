@@ -1,0 +1,25 @@
+package project.projectsoa.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import project.projectsoa.DAO.RentaldetailDAO;
+import project.projectsoa.model.Rentaldetail;
+
+@RestController
+@CrossOrigin(origins ="*")
+@RequestMapping("/api/rentaldetail")
+public class RentalDetailController {
+	public static RentaldetailDAO rentalDetailDao = new RentaldetailDAO();
+	
+	
+	@GetMapping("/rentalDetail")
+	List<Rentaldetail> getAllRentalDetail(){
+		return rentalDetailRepository.findAll();
+	}
+
+}
