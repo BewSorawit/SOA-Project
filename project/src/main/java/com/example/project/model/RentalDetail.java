@@ -19,5 +19,29 @@ public class RentalDetail {
     @JoinColumn(name = "costume_id")
     private Custume custume;
 
-    // Getters and setters
+    public int getRdId() {
+        return rdId;
+    }
+
+    public void setRdId(int rdId) {
+        this.rdId = rdId;
+    }
+
+    public Rental getRental() {
+        return rental;
+    }
+
+    public void setRental(Rental rental) {
+        this.rental = rental;
+    }
+
+    public Custume getCustume() {
+        return custume;
+    }
+
+    public void setCustume(Custume custume) {
+        this.custume = custume;
+    }
+
+
 }

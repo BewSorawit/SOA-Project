@@ -36,6 +36,18 @@ public class Rental {
     @Column(name = "payment_status")
     private String paymentStatus;
 
+    public Rental(){
+        
+    }
+
+    public Rental(Users customer, Users employee, Date orderDate, Date dueDate, String rentStatus) {
+        this.customer = customer;
+        this.employee = employee;
+        this.orderDate = orderDate;
+        this.dueDate = dueDate;
+        this.rentStatus = rentStatus;
+    }
+
     public int getRentalId() {
         return rentalId;
     }
