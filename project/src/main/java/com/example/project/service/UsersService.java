@@ -8,5 +8,5 @@ public interface UsersService {
 
 	 List<Users> getAllUsers();
 	 Users login(Users user);
-	 
+	 Users getByUserName(Users user);
 }

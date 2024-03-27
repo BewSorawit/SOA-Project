@@ -22,5 +22,9 @@ public class UsersServiceImpl implements UsersService {
 	public Users login(Users user) {
 		return u.findByUserNameAndPassword(user.getUserName(), user.getPassword());
 	}
+	@Override
+	public Users getByUserName(Users user) {
+		return u.findByUserName(user.getUserName());
+	}
 
 }

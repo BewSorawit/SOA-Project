@@ -8,5 +8,6 @@ import com.example.project.model.*;
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Integer>{
 	Users findByUserNameAndPassword(String userName,String password);
+	Users findByUserName(String userName);
 
 }
