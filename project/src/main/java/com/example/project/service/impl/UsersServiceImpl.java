@@ -26,5 +26,23 @@ public class UsersServiceImpl implements UsersService {
 	public Users getByUserName(Users user) {
 		return u.findByUserName(user.getUserName());
 	}
+	@Override
+	public void save(Users user) {
+		u.save(user);
+	}
+	@Override
+	public void update(Users user) {
+		Users u2 = u.findById(user.getId()).get() ;
+		u2.setFullName(user.getFullName());
+		u2.setAddress(user.getAddress());
+		u2.setPassword(user.getPassword());
+		u2.setUserName(user.getUserName());
+		u.save(u2);
+	}
+	
+	@Override
+	public void delete(Users user) {
+		u.deleteById(user.getId());
+	}
 
 }

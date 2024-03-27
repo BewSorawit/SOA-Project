@@ -78,5 +78,36 @@ public class UsersController {
 		session.invalidate();
 		return "Logout Success";
 	}
+	
+	@PostMapping("/create")
+	public String create(@RequestBody Users user) {
+		if(user.getId()!=0) {
+			return "create not use ID";
+		}
+		u.save(user);
+		Users t = u.getByUserName(user);
+		if(t.equals(user)) {
+		return "Create Success";
+		}
+		return "Fail";
+	}
+	@PutMapping("/update")
+	public String update(@RequestBody Users user) {
+		if(user.getId()==0) {
+			return "update Need ID";
+		}
+		u.update(user);
+		Users t = u.getByUserName(user);
+		if(t.equals(user)) {
+		return "????";
+		}
+		return "update Success";
+	}
+	
+	@DeleteMapping("/delete")
+	public String delete(@RequestBody Users user) {
+		u.delete(user);
+		return "delete Success";
+	}
 
 }
