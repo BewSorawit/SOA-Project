@@ -8,5 +8,8 @@ public interface UsersService {
 
 	 List<Users> getAllUsers();
 	 Users login(Users user);
-	 
+	 Users getByUserName(Users user);
+	 void save(Users user);
+	 void update(Users user);
+	 void delete(Users user);
 }

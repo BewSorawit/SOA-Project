@@ -31,6 +31,12 @@ public class Users{
 		this.password = password;
 	}
 	
+	public Users(String userName, int id) {
+		this.userName = userName;
+		this.id = id;
+	}
+	
+	
 	public Users() {
 	}
 
