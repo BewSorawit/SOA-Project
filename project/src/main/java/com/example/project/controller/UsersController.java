@@ -63,7 +63,7 @@ public class UsersController {
 				return u.getAllUsers();
 			}
 			System.out.println("FALSE");
-			l.add(new Users("NEED ADMIN ROLE!!!",404));
+			l.add(uss);
 			return l;
 
 		}
