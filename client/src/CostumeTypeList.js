@@ -1,6 +1,7 @@
 // CostumeTypeList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Table from 'react-bootstrap/Table';
 
 const CostumeTypeList = () => {
   const [costumeTypes, setCostumeTypes] = useState([]);
@@ -16,14 +17,22 @@ const CostumeTypeList = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Costume Types</h2>
-      <ul>
+    <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Costume ID</th>
+          <th>Costume</th>
+        </tr>
+      </thead>
+      <tbody>
         {costumeTypes.map(costumeType => (
-          <li key={costumeType.typeId}>{costumeType.typeName}</li>
+          <tr key={costumeType.typeId}>
+          <td>{costumeType.typeId}</td> 
+            <td>{costumeType.typeName}</td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </Table>
   );
 };
 

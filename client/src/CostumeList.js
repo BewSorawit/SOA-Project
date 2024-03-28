@@ -1,4 +1,4 @@
-// CostumeList.js
+import Table from 'react-bootstrap/Table';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -16,14 +16,22 @@ const CostumeList = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Costumes</h2>
-      <ul>
+    <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Costume ID</th>
+          <th>Costume</th>
+        </tr>
+      </thead>
+      <tbody>
         {costumes.map(costume => (
-          <li key={costume.costumeId}>{costume.costumeName}</li>
+          <tr key={costume.costumeId}>
+          <td>{costume.costumeId}</td>
+            <td>{costume.costumeName}</td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </Table>
   );
 };
 
