@@ -25,6 +25,7 @@ export default class NavbarComp extends Component{
 
             </div>
             <div>
+            
                 <Routes>
                 <Route path="/costumeForm" element={<CostumeForm/>}>
             </Route>

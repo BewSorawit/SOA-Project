@@ -6,7 +6,7 @@ const CostumeTypeList = () => {
   const [costumeTypes, setCostumeTypes] = useState([]);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/costume-types`)
+    axios.get(`${process.env.REACT_APP_API_URL}/custume-types`)
       .then(response => {
         setCostumeTypes(response.data);
       })
@@ -20,7 +20,7 @@ const CostumeTypeList = () => {
       <h2>Costume Types</h2>
       <ul>
         {costumeTypes.map(costumeType => (
-          <li key={costumeType.id}>{costumeType.name}</li>
+          <li key={costumeType.typeId}>{costumeType.typeName}</li>
         ))}
       </ul>
     </div>
