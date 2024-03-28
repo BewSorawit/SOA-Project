@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 const CostumeForm = () => {
   const [name, setName] = useState('');
   const [costumeTypes, setCostumeTypes] = useState([]);
   const [selectedType, setSelectedType] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const fetchCostumeTypes = async () => {
@@ -23,14 +24,19 @@ const CostumeForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedType) {
-      console.error('Please select a costume type.');
+      setErrorMessage('Costume Type can\'t be empty.');
       return;
     }
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/costumes`, { costumeName: name, costumeType: { typeId: selectedType }, status: 'Available' });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/custumes`, { costumeName: name, costumeType: { typeId: selectedType }, status: 'Available' });
       console.log('Costume created:', response.data);
       setName('');
       setSelectedType('');
+      setSuccessMessage('Costume added successfully.');
+      setErrorMessage('');
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 5000);
     } catch (error) {
       console.error('Error creating costume:', error);
     }
@@ -43,6 +49,16 @@ const CostumeForm = () => {
           <div className="card">
             <div className="card-body">
               <h2 className="card-title">Add New Costume</h2>
+              {errorMessage && (
+                <div className="alert alert-danger" role="alert">
+                  {errorMessage}
+                </div>
+              )}
+              {successMessage && (
+                <div className="alert alert-success" role="alert">
+                  {successMessage}
+                </div>
+              )}
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Costume Name:</label>
