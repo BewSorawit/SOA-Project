@@ -1,23 +1,22 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './Navbar';
-import Home from './Home';
-import CostumeList from './CostumeList';
-import CostumeTypeList from './CostumeTypeList';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBarComp from './Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './Login'
+import Signup from './Signup'
 
 const App = () => {
   return (
-    <Router>
-      <div>
-        <NavBar />
+    <div className="App">
+      <NavBarComp/>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/costumes" element={<CostumeList />} />
-          <Route path="/costume-types" element={<CostumeTypeList />} />
+          <Route path='/Login' element={<Login />}></Route>
+          <Route path='/signup' element={<Signup />}></Route>
         </Routes>
-      </div>
-    </Router>
+      </BrowserRouter>
+    </div>
   );
 };
 
